@@ -16,6 +16,7 @@
     height: 195px;
     width: 70%;
     justify-content: space-between;
+    z-index: 2;
 }
 
 .controller__icons-column {
@@ -51,18 +52,22 @@
 
 .controller__icons-play {
     height: 35px;
-    background: url('/assets/img/icons/play.png') no-repeat center;
+    background: url('../img/sprite/sprite.png') -275px -135px;
+    background-repeat: no-repeat;
     margin-bottom: 20px;
+        &:active {
+            background: url('../img/sprite/sprite.png') 2px -248px;
+        }
 }
 
 .controller__icons-checked {
     height: 65px;
-    background: url('/assets/img/icons/checked.png') no-repeat center;
+    background: url('../img/icons/checked-color-big.png') no-repeat center;
 }
 
 .controller__icons-cross {
     height: 65px;
-    background: url('/assets/img/icons/cross.png') no-repeat center;
+    background: url('../img/icons/cross-red-big.png') no-repeat center;
     
 }
 
@@ -71,14 +76,20 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 62%;
-    margin-top: 115px;
+    width: 60%;
+    margin-top: -150px;   
+    transition: margin-top 1s;
+    z-index: 1;
 }
 
 .controller__result-level  {
     font-size: 20px;
     text-transform: uppercase;
     color: white;
+    transform: scale(0, 1);
+    transition: all 1s;
+    transition-delay: 1s;
+    margin-right: 20px;
 }
 
 .controller__result-round {
@@ -98,5 +109,82 @@
     color: white;
 }
 
+.true {
+    background-color: #9DC7BD;
+}
 
+.false {
+    background-color: #FF777C;
+}
+
+.track {
+    background-color: #FFEAA2;
+}
+
+//svg 
+
+.single-chart {
+    width: 33%;
+    justify-content: space-around ;
+    transform: scale(0.01, 0.01);
+    transition: all 1s;
+    transition-delay: 1.5s;
+  }
   
+  .circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 86%;
+    max-height: 250px;
+  }
+  
+  .circle-bg {
+    fill: none;
+    stroke:transparent;
+    stroke-width: 1;
+  }
+  
+  .circle {
+    fill: none;
+    stroke-width: 1;
+    stroke-linecap: round;
+    // animation: progress 5s ease-out forwards;
+    stroke-dasharray: 0, 100;
+    // stroke-dashoffset: 100;
+    // transition: all 3s;
+  }
+
+  @keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+  
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+  
+  .circular-chart.orange .circle {
+    stroke: #FF777C;
+  }
+  
+  .percentage {
+    fill: #fff;
+    font-size: 13px;
+    text-anchor: middle;
+  }
+
+  .circular-chart--form {
+    margin: 0 20px;
+    max-width: 70%;
+  }
+
+  .element-show {
+      opacity: 0;
+  }
+
+  .element-hide {
+      opacity: 1;
+  }

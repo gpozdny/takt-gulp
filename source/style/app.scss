@@ -1,5 +1,6 @@
 @import 'adjustments.scss';
 @import "plugins/hamburgers/hamburgers.scss";
+@import "plugins/jquery.fullpage.min.scss";
 @import "sections/header.scss";
 @import 'sections/guide.scss';
 @import 'sections/controller.scss';
@@ -13,9 +14,10 @@ body {
 
 // main adjustments
 #particles-js {
-	height: 99.5%;
-	position: absolute;
-	top: 0;
-	right: 0;
+	position: fixed;
 	width: 100%;
+	height: 100%;
+	z-index: 0;
+	top: 0px;
+	left: 0px;
 }

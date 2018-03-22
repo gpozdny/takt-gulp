@@ -12,17 +12,19 @@ html(lang='en')
   body
     #particles-js
     .wrapper
-      .maincontent
-        header.header
-          .sound
-          .hamburger-wrap
-            button.hamburger.hamburger--collapse(type='button')
-              span.hamburger-box
-                span.hamburger-inner
-        section.title
+      header.header
+       .sound(onclick='muteTrack()')
+       .hamburger-wrap
+        button.hamburger.hamburger--collapse(type='button')
+         span.hamburger-box
+          span.hamburger-inner
+      .maincontent(id="fullpage")
+        .menu(id='menu')
+        section.title.section
           h1.title__text |  Насколько музыкален твой слух ?  |
-          .title__arrow.bounce
-        section.guide
+          .title__arrow.bounce(href="#")
+        section.guide.section
+          .title__arrow.bounce(href="#")
           .container
             ul.guide__list
               li.guide__item
@@ -42,60 +44,66 @@ html(lang='en')
                   .guide__item-wrap
                     .guide__item-icon.icon-cross
                     span.guide__item-text - разные
-            .title__arrow.bounce
-        section.controller
+        section.controller.section
           .container
             .controller__panel
               .controller__icons-column
                 .controller__icons-play.controller__icons(onclick='beginTest()')
                 .controller__icons-checked.controller__icons
                 .controller__icons-cross.controller__icons
-              .controller__column
-                .controller__column-track
-                .controller__column-choise.controller__column-choise--true
-                .controller__column-choise.controller__column-choise--false
-              .controller__column
-                .controller__column-track
-                .controller__column-choise.controller__column-choise--true
-                .controller__column-choise.controller__column-choise--false
-              .controller__column
-                .controller__column-track
-                .controller__column-choise.controller__column-choise--true
-                .controller__column-choise.controller__column-choise--false
-              .controller__column
-                .controller__column-track
-                .controller__column-choise.controller__column-choise--true
-                .controller__column-choise.controller__column-choise--false
-              .controller__column
-                .controller__column-track
-                .controller__column-choise.controller__column-choise--true
-                .controller__column-choise.controller__column-choise--false
-              .controller__column
-                .controller__column-track
-                .controller__column-choise.controller__column-choise--true
-                .controller__column-choise.controller__column-choise--false
-              .controller__column
-                .controller__column-track
-                .controller__column-choise.controller__column-choise--true
-                .controller__column-choise.controller__column-choise--false
-              .controller__column
-                .controller__column-track
-                .controller__column-choise.controller__column-choise--true
-                .controller__column-choise.controller__column-choise--false
-              .controller__column
-                .controller__column-track
-                .controller__column-choise.controller__column-choise--true
-                .controller__column-choise.controller__column-choise--false
-              .controller__column
-                .controller__column-track
-                .controller__column-choise.controller__column-choise--true
-                .controller__column-choise.controller__column-choise--false
+              //- .controller__column
+              //-   .controller__column-track
+              //-   .controller__column-choise.controller__column-choise--true
+              //-   .controller__column-choise.controller__column-choise--false
+              //- .controller__column
+              //-   .controller__column-track
+              //-   .controller__column-choise.controller__column-choise--true
+              //-   .controller__column-choise.controller__column-choise--false
+              //- .controller__column
+              //-   .controller__column-track
+              //-   .controller__column-choise.controller__column-choise--true
+              //-   .controller__column-choise.controller__column-choise--false
+              //- .controller__column
+              //-   .controller__column-track
+              //-   .controller__column-choise.controller__column-choise--true
+              //-   .controller__column-choise.controller__column-choise--false
+              //- .controller__column
+              //-   .controller__column-track
+              //-   .controller__column-choise.controller__column-choise--true
+              //-   .controller__column-choise.controller__column-choise--false
+              //- .controller__column
+              //-   .controller__column-track
+              //-   .controller__column-choise.controller__column-choise--true
+              //-   .controller__column-choise.controller__column-choise--false
+              //- .controller__column
+              //-   .controller__column-track
+              //-   .controller__column-choise.controller__column-choise--true
+              //-   .controller__column-choise.controller__column-choise--false
+              //- .controller__column
+              //-   .controller__column-track
+              //-   .controller__column-choise.controller__column-choise--true
+              //-   .controller__column-choise.controller__column-choise--false
+              //- .controller__column
+              //-   .controller__column-track
+              //-   .controller__column-choise.controller__column-choise--true
+              //-   .controller__column-choise.controller__column-choise--false
+              //- .controller__column
+              //-   .controller__column-track
+              //-   .controller__column-choise.controller__column-choise--true
+              //-   .controller__column-choise.controller__column-choise--false
             .controller__result
               span.controller__result-level |  уровень твоего музыкального слуха:
-              .controller__result-round
-                span.controller__result-rate 87
-            .title__arrow.bounce
-        section.feedback
+              .single-chart
+                svg.circular-chart.orange(viewbox="0 0 36 36")
+                  path.circle-bg(d="M18 2.0845\
+                  a 15.9155 15.9155 0 0 1 0 31.831\
+                  a 15.9155 15.9155 0 0 1 0 -31.831")
+                  path.circle(stroke-dasharray="0, 100" d="M18 2.0845\
+                  a 15.9155 15.9155 0 0 1 0 31.831\
+                  a 15.9155 15.9155 0 0 1 0 -31.831")
+                  text.percentage(x="18" y="22.5") 
+          .title__arrow.bounce(href="#")
+        section.feedback.section
           .container.container--feedback
             .form-title__wrap
               span.form-title ЗАПОЛНИ ФОРМУ УЧАСТНИКА  |  ОТПРАВЬ СВОЙ РЕЗУЛЬТАТ
@@ -109,8 +117,15 @@ html(lang='en')
                   input#name(type='text', placeholder='_')
                   input#surname(type='text', placeholder='_')
                   input#email(type='email', placeholder='_')
-                .controller__result-round.controller__result-round--form
-                  span.controller__result-rate.controller__result-rate--form 87
+                .single-chart
+                  svg.circular-chart.circular-chart--form.orange(viewbox="0 0 36 36")
+                    path.circle-bg(d="M18 2.0845\
+                    a 15.9155 15.9155 0 0 1 0 31.831\
+                    a 15.9155 15.9155 0 0 1 0 -31.831")
+                    path.circle( d="M18 2.0845\
+                    a 15.9155 15.9155 0 0 1 0 31.831\
+                    a 15.9155 15.9155 0 0 1 0 -31.831")
+                    text.percentage(x="18" y="22.5") 
               input.submit__btn(type='submit', value='')
     script(src='assets/js/plugins.js' defer)
     script(src='assets/js/app.js' defer)
